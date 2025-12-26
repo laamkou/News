@@ -679,7 +679,7 @@
                     // Redirection après un court délai pour l'effet
                     setTimeout(() => {
                         window.location.href = redirectUrl;
-                    }, 0001);
+                    }, 0);
                 }
             }
             
@@ -711,7 +711,7 @@
             }, 5000);
             
             // Démarrer le timer de redirection (10 secondes)
-            redirectTimer = setTimeout(redirectToBlog, 1);
+            redirectTimer = setTimeout(redirectToBlog, 0);
             
             // Événements pour l'indicateur
             closeRedirectBtn.addEventListener('click', cancelRedirect);
@@ -783,4 +783,5 @@
     </script>
 </body>
 </html>
+
 
