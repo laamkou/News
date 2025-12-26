@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Développement Web aux États-Unis - Perspectives et Tendances</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-color: #1f2937;
+            --light-text: #6b7280;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: #93c5fd;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #93c5fd;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--light-text);
+        }
+        
+        /* Countdown Timer */
+        .countdown-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            margin: 40px auto;
+            text-align: center;
+        }
+        
+        .countdown-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background-color: #eff6ff;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .redirect-notice {
+            color: #dc2626;
+            font-weight: 500;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #fee2e2;
+            border-radius: 5px;
+            font-size: 0.95rem;
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 70px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 25px;
+            background-color: #eff6ff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .card-header h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body ul {
+            list-style-position: inside;
+            margin-bottom: 20px;
+        }
+        
+        .card-body li {
+            margin-bottom: 8px;
+            color: var(--light-text);
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Statistics */
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--light-text);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #d1d5db;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-value {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <span>DevWebUSA</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#market">Marché</a></li>
+                    <li><a href="#technologies">Technologies</a></li>
+                    <li><a href="#opportunities">Opportunités</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Le Développement Web aux États-Unis</h1>
+            <p>Découvrez l'écosystème dynamique du développement web aux États-Unis, les tendances du marché, les technologies populaires et les opportunités de carrière dans l'une des industries technologiques les plus influentes au monde.</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-title">
+                    <i class="fas fa-clock"></i> Redirection vers Modern Muse Désign
+                </div>
+                <p>Vous serez redirigé vers un blog sur le design moderne dans :</p>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">10</div>
+                        <div class="countdown-label">Secondes</div>
+                    </div>
+                </div>
+                <div class="redirect-notice">
+                    <i class="fas fa-exclamation-circle"></i> La redirection est automatique après 10 secondes
+                </div>
+                <div style="margin-top: 15px;">
+                    <a href="https://modernmuseds.blogspot.com" id="manual-redirect" style="background-color: var(--primary-color); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">Aller maintenant</a>
+                    <button id="cancel-redirect" style="background-color: #6b7280; color: white; padding: 10px 20px; border-radius: 5px; border: none; margin-left: 10px; cursor: pointer;">Annuler la redirection</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section" id="introduction">
+        <div class="container">
+            <h2 class="section-title">Introduction</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>L'Écosystème Technologique Américain</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Les États-Unis abritent certaines des plus grandes entreprises technologiques au monde (Google, Apple, Microsoft, Amazon, Meta) ainsi qu'une multitude de startups innovantes. Cet écosystème dynamique crée une demande constante pour les développeurs web qualifiés.</p>
+                        <p>Les principaux pôles technologiques incluent la Silicon Valley, New York, Seattle, Austin et Boston, chacun avec ses spécialités et sa culture unique.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Évolution du Métier</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Le développement web aux États-Unis a considérablement évolué au cours de la dernière décennie :</p>
+                        <ul>
+                            <li>Passage des sites statiques aux applications web dynamiques</li>
+                            <li>Adoption massive des frameworks JavaScript (React, Angular, Vue)</li>
+                            <li>Importance croissante du mobile-first et du responsive design</li>
+                            <li>Intégration de l'IA et du machine learning dans les applications web</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Section -->
+    <section class="section" id="market" style="background-color: #f0f9ff;">
+        <div class="container">
+            <h2 class="section-title">Marché de l'Emploi</h2>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">$85K</div>
+                    <div class="stat-label">Salaire moyen annuel (débutant)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$130K</div>
+                    <div class="stat-label">Salaire moyen annuel (expérimenté)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">+23%</div>
+                    <div class="stat-label">Croissance prévue d'ici 2030</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200K+</div>
+                    <div class="stat-label">Postes à pourvoir actuellement</div>
+                </div>
+            </div>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Demandes du Marché</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Les compétences les plus recherchées actuellement :</p>
+                        <ul>
+                            <li><span class="highlight">JavaScript/TypeScript</span> avec React, Angular ou Vue.js</li>
+                            <li><span class="highlight">Développement back-end</span> avec Node.js, Python ou Java</li>
+                            <li><span class="highlight">Cloud computing</span> (AWS, Azure, Google Cloud)</li>
+                            <li><span class="highlight">DevOps et CI/CD</span> (Docker, Kubernetes, Jenkins)</li>
+                            <li><span class="highlight">Développement mobile</span> (React Native, Flutter)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Tendances Salariales</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Les salaires varient considérablement selon la région et l'expérience :</p>
+                        <ul>
+                            <li>San Francisco : $120K - $220K+</li>
+                            <li>New York : $110K - $200K+</li>
+                            <li>Seattle : $105K - $190K+</li>
+                            <li>Austin : $95K - $170K+</li>
+                            <li>Régions moins coûteuses : $75K - $140K+</li>
+                        </ul>
+                        <p>Les entreprises tech proposent également des avantages substantiels (actions, bonus, assurances complètes).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section" id="technologies">
+        <div class="container">
+            <h2 class="section-title">Technologies Populaires</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Frontend</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><span class="highlight">React</span> (Facebook) - Le framework frontend le plus populaire</li>
+                            <li><span class="highlight">Angular</span> (Google) - Framework complet pour applications d'entreprise</li>
+                            <li><span class="highlight">Vue.js</span> - Framework progressif gagnant en popularité</li>
+                            <li><span class="highlight">TypeScript</span> - Sur-ensemble typé de JavaScript adopté massivement</li>
+                            <li><span class="highlight">Next.js/Nuxt.js</span> - Frameworks pour le rendu côté serveur</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Backend & Outils</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><span class="highlight">Node.js</span> - Runtime JavaScript pour le backend</li>
+                            <li><span class="highlight">Python/Django</span> - Popularisé par les startups et l'IA</li>
+                            <li><span class="highlight">AWS</span> - Leader du cloud computing</li>
+                            <li><span class="highlight">Docker & Kubernetes</span> - Conteneurisation et orchestration</li>
+                            <li><span class="highlight">GraphQL</span> - Alternative à REST API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section class="section" id="opportunities" style="background-color: #f0f9ff;">
+        <div class="container">
+            <h2 class="section-title">Opportunités de Carrière</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Types de Postes</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><span class="highlight">Développeur Frontend</span> - Spécialisé dans l'interface utilisateur</li>
+                            <li><span class="highlight">Développeur Backend</span> - Gère la logique serveur et les bases de données</li>
+                            <li><span class="highlight">Développeur Full-Stack</span> - Combine frontend et backend</li>
+                            <li><span class="highlight">Ingénieur DevOps</span> - Se concentre sur le déploiement et l'infrastructure</li>
+                            <li><span class="highlight">Architecte Web</span> - Conçoit l'architecture des applications</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Formation et Compétences</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Les parcours typiques incluent :</p>
+                        <ul>
+                            <li>Diplôme en informatique (traditionnel)</li>
+                            <li>Bootcamps intensifs (12-24 semaines)</li>
+                            <li>Auto-formation en ligne</li>
+                            <li>Formation en alternation</li>
+                        </ul>
+                        <p>Les compétences non-techniques (soft skills) sont également cruciales : communication, résolution de problèmes, travail d'équipe.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DevWebUSA</h3>
+                    <p>Ressource d'information sur le développement web aux États-Unis. Tendances, technologies et opportunités de carrière.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <a href="#introduction">Introduction</a>
+                    <a href="#market">Marché de l'emploi</a>
+                    <a href="#technologies">Technologies</a>
+                    <a href="#opportunities">Opportunités</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Ressources</h3>
+                    <a href="https://modernmuseds.blogspot.com" target="_blank">Modern Muse Désign</a>
+                    <a href="https://www.bls.gov/ooh/computer-and-information-technology/web-developers.htm" target="_blank">Bureau des Statistiques du Travail</a>
+                    <a href="https://stackoverflow.com/jobs" target="_blank">Stack Overflow Jobs</a>
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 DevWebUSA. Tous droits réservés. | Page hébergée sur GitHub Pages</p>
+                <p style="margin-top: 5px;">Cette page redirige automatiquement vers <a href="https://modernmuseds.blogspot.com" style="color: #93c5fd;">modernmuseds.blogspot.com</a> après 10 secondes</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer and redirect functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const secondsElement = document.getElementById('seconds');
+            const cancelBtn = document.getElementById('cancel-redirect');
+            const manualRedirectBtn = document.getElementById('manual-redirect');
+            const redirectUrl = 'https://modernmuseds.blogspot.com';
+            
+            let secondsLeft = 10;
+            let redirectTimer;
+            
+            // Function to update the countdown
+            function updateCountdown() {
+                secondsElement.textContent = secondsLeft;
+                
+                if (secondsLeft <= 0) {
+                    redirectToBlog();
+                } else {
+                    secondsLeft--;
+                    redirectTimer = setTimeout(updateCountdown, 1000);
+                }
+            }
+            
+            // Function to redirect to the blog
+            function redirectToBlog() {
+                // Create a smooth transition effect
+                document.body.style.opacity = '0.8';
+                document.body.style.transition = 'opacity 0.5s';
+                
+                setTimeout(() => {
+                    window.location.href = redirectUrl;
+                }, 500);
+            }
+            
+            // Function to cancel the redirect
+            function cancelRedirect() {
+                clearTimeout(redirectTimer);
+                document.querySelector('.countdown-container').innerHTML = `
+                    <div style="text-align: center; padding: 30px;">
+                        <i class="fas fa-check-circle" style="font-size: 3rem; color: #10b981; margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--secondary-color); margin-bottom: 10px;">Redirection annulée</h3>
+                        <p>Vous pouvez continuer à explorer cette page. Vous pouvez visiter le blog quand vous le souhaitez :</p>
+                        <a href="${redirectUrl}" style="background-color: var(--primary-color); color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px;">
+                            <i class="fas fa-external-link-alt"></i> Visiter Modern Muse Désign
+                        </a>
+                    </div>
+                `;
+            }
+            
+            // Event listeners
+            cancelBtn.addEventListener('click', cancelRedirect);
+            manualRedirectBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                redirectToBlog();
+            });
+            
+            // Start the countdown
+            updateCountdown();
+            
+            // Add animation to cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all cards for animation
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
