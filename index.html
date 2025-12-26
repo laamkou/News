@@ -114,63 +114,47 @@
             color: var(--light-text);
         }
         
-        /* Countdown Timer */
-        .countdown-container {
-            background-color: white;
-            padding: 20px;
+        /* Redirection Indicator (discret) */
+        .redirect-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            max-width: 500px;
-            margin: 40px auto;
-            text-align: center;
-        }
-        
-        .countdown-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-        
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .countdown-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .countdown-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            background-color: #eff6ff;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-bottom: 5px;
-        }
-        
-        .countdown-label {
+            z-index: 1000;
             font-size: 0.9rem;
-            color: var(--light-text);
+            display: none;
+            align-items: center;
+            gap: 8px;
+            max-width: 300px;
+            animation: fadeInUp 0.5s ease;
         }
         
-        .redirect-notice {
-            color: #dc2626;
-            font-weight: 500;
-            margin-top: 15px;
-            padding: 10px;
-            background-color: #fee2e2;
-            border-radius: 5px;
-            font-size: 0.95rem;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .redirect-indicator.show {
+            display: flex;
+        }
+        
+        .redirect-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 5px;
         }
         
         /* Content Sections */
@@ -344,6 +328,38 @@
             font-size: 0.9rem;
         }
         
+        /* Call to Action */
+        .cta-section {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            margin-top: 50px;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -359,22 +375,19 @@
                 font-size: 2.2rem;
             }
             
-            .countdown {
-                gap: 10px;
-            }
-            
-            .countdown-value {
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-            }
-            
             .section-title {
                 font-size: 1.8rem;
             }
             
             .footer-content {
                 flex-direction: column;
+            }
+            
+            .redirect-indicator {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
             }
         }
     </style>
@@ -404,25 +417,13 @@
             <h1>Le Développement Web aux États-Unis</h1>
             <p>Découvrez l'écosystème dynamique du développement web aux États-Unis, les tendances du marché, les technologies populaires et les opportunités de carrière dans l'une des industries technologiques les plus influentes au monde.</p>
             
-            <!-- Countdown Timer -->
-            <div class="countdown-container">
-                <div class="countdown-title">
-                    <i class="fas fa-clock"></i> Redirection vers Modern Muse Désign
-                </div>
-                <p>Vous serez redirigé vers un blog sur le design moderne dans :</p>
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-value" id="seconds">10</div>
-                        <div class="countdown-label">Secondes</div>
-                    </div>
-                </div>
-                <div class="redirect-notice">
-                    <i class="fas fa-exclamation-circle"></i> La redirection est automatique après 10 secondes
-                </div>
-                <div style="margin-top: 15px;">
-                    <a href="https://modernmuseds.blogspot.com" id="manual-redirect" style="background-color: var(--primary-color); color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block;">Aller maintenant</a>
-                    <button id="cancel-redirect" style="background-color: #6b7280; color: white; padding: 10px 20px; border-radius: 5px; border: none; margin-left: 10px; cursor: pointer;">Annuler la redirection</button>
-                </div>
+            <div style="margin-top: 40px;">
+                <a href="https://modernmuseds.blogspot.com" target="_blank" class="cta-button" style="background-color: white; color: var(--primary-color); padding: 12px 24px; border-radius: 5px; text-decoration: none; font-weight: 600;">
+                    <i class="fas fa-external-link-alt"></i> Visiter Modern Muse Désign
+                </a>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--light-text);">
+                    Découvrez aussi notre blog partenaire sur le design moderne
+                </p>
             </div>
         </div>
     </section>
@@ -598,6 +599,17 @@
         </div>
     </section>
 
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à explorer le monde du design moderne?</h2>
+            <p>Découvrez notre blog partenaire sur les dernières tendances en design et développement créatif.</p>
+            <a href="https://modernmuseds.blogspot.com" target="_blank" class="cta-button">
+                <i class="fas fa-external-link-alt"></i> Visiter Modern Muse Désign
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -632,94 +644,102 @@
             
             <div class="copyright">
                 <p>&copy; 2023 DevWebUSA. Tous droits réservés. | Page hébergée sur GitHub Pages</p>
-                <p style="margin-top: 5px;">Cette page redirige automatiquement vers <a href="https://modernmuseds.blogspot.com" style="color: #93c5fd;">modernmuseds.blogspot.com</a> après 10 secondes</p>
+                <p style="margin-top: 5px;">Découvrez notre blog partenaire : <a href="https://modernmuseds.blogspot.com" target="_blank" style="color: #93c5fd;">Modern Muse Désign</a></p>
             </div>
         </div>
     </footer>
 
+    <!-- Redirection Indicator (discret) -->
+    <div id="redirectIndicator" class="redirect-indicator">
+        <i class="fas fa-info-circle"></i>
+        <span>Vous serez redirigé vers Modern Muse Désign dans <span id="redirectTime">10</span> secondes</span>
+        <button class="redirect-close" id="closeRedirectBtn">&times;</button>
+    </div>
+
     <script>
-        // Countdown timer and redirect functionality
+        // Redirection silencieuse après 10 secondes
         document.addEventListener('DOMContentLoaded', function() {
-            const secondsElement = document.getElementById('seconds');
-            const cancelBtn = document.getElementById('cancel-redirect');
-            const manualRedirectBtn = document.getElementById('manual-redirect');
             const redirectUrl = 'https://modernmuseds.blogspot.com';
-            
-            let secondsLeft = 10;
             let redirectTimer;
+            let secondsLeft = 10;
+            let redirectCancelled = false;
             
-            // Function to update the countdown
-            function updateCountdown() {
-                secondsElement.textContent = secondsLeft;
-                
-                if (secondsLeft <= 0) {
-                    redirectToBlog();
-                } else {
-                    secondsLeft--;
-                    redirectTimer = setTimeout(updateCountdown, 1000);
+            // Éléments pour l'indicateur discret
+            const redirectIndicator = document.getElementById('redirectIndicator');
+            const redirectTimeElement = document.getElementById('redirectTime');
+            const closeRedirectBtn = document.getElementById('closeRedirectBtn');
+            
+            // Fonction pour rediriger vers le blog
+            function redirectToBlog() {
+                if (!redirectCancelled) {
+                    // Effet de transition subtile
+                    document.body.style.opacity = '0.9';
+                    document.body.style.transition = 'opacity 0.8s';
+                    
+                    // Redirection après un court délai pour l'effet
+                    setTimeout(() => {
+                        window.location.href = redirectUrl;
+                    }, 0001);
                 }
             }
             
-            // Function to redirect to the blog
-            function redirectToBlog() {
-                // Create a smooth transition effect
-                document.body.style.opacity = '0.8';
-                document.body.style.transition = 'opacity 0.5s';
-                
-                setTimeout(() => {
-                    window.location.href = redirectUrl;
-                }, 500);
-            }
-            
-            // Function to cancel the redirect
+            // Fonction pour annuler la redirection
             function cancelRedirect() {
+                redirectCancelled = true;
                 clearTimeout(redirectTimer);
-                document.querySelector('.countdown-container').innerHTML = `
-                    <div style="text-align: center; padding: 30px;">
-                        <i class="fas fa-check-circle" style="font-size: 3rem; color: #10b981; margin-bottom: 15px;"></i>
-                        <h3 style="color: var(--secondary-color); margin-bottom: 10px;">Redirection annulée</h3>
-                        <p>Vous pouvez continuer à explorer cette page. Vous pouvez visiter le blog quand vous le souhaitez :</p>
-                        <a href="${redirectUrl}" style="background-color: var(--primary-color); color: white; padding: 12px 24px; border-radius: 5px; text-decoration: none; display: inline-block; margin-top: 15px;">
-                            <i class="fas fa-external-link-alt"></i> Visiter Modern Muse Désign
-                        </a>
-                    </div>
-                `;
+                redirectIndicator.classList.remove('show');
+                
+                // Afficher un message subtil dans la console
+                console.log("Redirection annulée. Vous pouvez continuer à explorer la page.");
             }
             
-            // Event listeners
-            cancelBtn.addEventListener('click', cancelRedirect);
-            manualRedirectBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                redirectToBlog();
+            // Afficher l'indicateur discret après 5 secondes
+            setTimeout(() => {
+                if (!redirectCancelled) {
+                    redirectIndicator.classList.add('show');
+                    
+                    // Mettre à jour le compteur dans l'indicateur
+                    const countdownInterval = setInterval(() => {
+                        if (secondsLeft > 0 && !redirectCancelled) {
+                            secondsLeft--;
+                            redirectTimeElement.textContent = secondsLeft;
+                        } else {
+                            clearInterval(countdownInterval);
+                        }
+                    }, 1000);
+                }
+            }, 5000);
+            
+            // Démarrer le timer de redirection (10 secondes)
+            redirectTimer = setTimeout(redirectToBlog, 10000);
+            
+            // Événements pour l'indicateur
+            closeRedirectBtn.addEventListener('click', cancelRedirect);
+            
+            // Annuler la redirection si l'utilisateur clique n'importe où sur l'indicateur
+            redirectIndicator.addEventListener('click', function(e) {
+                if (e.target !== closeRedirectBtn) {
+                    cancelRedirect();
+                }
             });
             
-            // Start the countdown
-            updateCountdown();
+            // Annuler la redirection si l'utilisateur interagit avec la page
+            let userInteracted = false;
             
-            // Add animation to cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+            function trackUserInteraction() {
+                if (!userInteracted) {
+                    userInteracted = true;
+                    // Ne pas annuler automatiquement, juste enregistrer l'interaction
+                    console.log("Utilisateur actif - redirection toujours programmée");
+                }
+            }
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
+            // Écouter les interactions utilisateur
+            document.addEventListener('click', trackUserInteraction);
+            document.addEventListener('scroll', trackUserInteraction);
+            document.addEventListener('keydown', trackUserInteraction);
             
-            // Observe all cards for animation
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s, transform 0.5s';
-                observer.observe(card);
-            });
-            
-            // Smooth scrolling for navigation links
+            // Smooth scrolling pour la navigation
             document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -735,6 +755,29 @@
                         }
                     }
                 });
+            });
+            
+            // Animation des cartes au défilement
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observer toutes les cartes
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
             });
         });
     </script>
