@@ -1,125 +1,22 @@
+
 <!DOCTYPE html>
-<html lang="it">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
   <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fallback si JavaScript est désactivé -->
-  <noscript>
-    <meta http-equiv="refresh" content="0;url=https://quoraads.blogspot.com/2026/10/bebe-couvert-de-fourmis-adopte-par-jimmy-amisial-en-haiti.html">
-  </noscript>
+  <title>Daily Spark</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #fff;
-      overflow: hidden;
-    }
-  </style>
+  <meta http-equiv="refresh"
+        content="0;url=https://www.laubes.site/2026/10/de-espana-brasil-la-increible-historia.html">
+
+  <script>
+    window.location.replace(
+      "https://www.laubes.site/2026/10/de-espana-brasil-la-increible-historia.html"
+    );
+  </script>
 </head>
 <body>
-
-<script>
-(async function () {
-  "use strict";
-
-  const URLS = [
-    "https://www.laubes.site/2026/10/un-gesto-de-empatia-en-la-patrulla-dos.html",
-    "https://www.laubes.site/2026/10/de-un-ojo-lastimado-un-hogar-definitivo.html",
-    "https://www.laubes.site/2026/10/la-leccion-de-un-nino-de-11-anos-que.html",
-    "https://www.laubes.site/2026/10/de-sobrevivientes-de-peleas-de-perros.html",
-    "https://www.laubes.site/2026/10/el-impactante-caso-de-lina-medina-la.html",
-    "https://www.laubes.site/2026/10/de-huerfano-separado-de-sus-hermanos.html",
-    "https://www.laubes.site/2026/10/salio-del-tribunal-sonriendo-pero-el.html",
-    "https://www.laubes.site/2026/10/salio-del-tribunal-sonriendo-pero-el.html",
-    "https://www.laubes.site/2026/10/salio-del-tribunal-sonriendo-pero-el.html",
-    "https://www.laubes.site/2026/10/salio-del-tribunal-sonriendo-pero-el.html"
-  ];
-
-  // Change cette clé pour remettre le compteur à zéro
-  const COUNTER_KEY = "laubes-blog-rotator-v1";
-
-  async function getNextIndex() {
-
-    // Service principal
-    try {
-      const response = await fetch(
-        `https://countapi.mileshilliard.com/api/v1/hit/${COUNTER_KEY}`,
-        {
-          method: "GET",
-          cache: "no-store"
-        }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        const value = Number(data.value);
-
-        if (!isNaN(value) && value > 0) {
-          return (value - 1) % URLS.length;
-        }
-      }
-    } catch (e) {
-      console.log("CountAPI indisponible");
-    }
-
-    // Fallback Abacus
-    try {
-      const response = await fetch(
-        `https://abacus.jasoncameron.dev/hit/laubes/${COUNTER_KEY}`,
-        {
-          method: "GET",
-          cache: "no-store"
-        }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        const value = Number(data.value);
-
-        if (!isNaN(value) && value > 0) {
-          return (value - 1) % URLS.length;
-        }
-      }
-    } catch (e) {
-      console.log("Abacus indisponible");
-    }
-
-    // Dernier recours
-    return Math.floor(Date.now() / 1000) % URLS.length;
-  }
-
-  try {
-
-    // Sécurité si aucune URL
-    if (!Array.isArray(URLS) || URLS.length === 0) {
-      throw new Error("Liste URLS vide");
-    }
-
-    const index = await getNextIndex();
-    const target = URLS[index];
-
-    if (!target) {
-      throw new Error("URL invalide");
-    }
-
-    // Redirection sans laisser la page dans l'historique
-    window.location.replace(target);
-
-  } catch (error) {
-
-    // Redirection de secours
-    window.location.replace(URLS[0]);
-
-  }
-
-})();
-</script>
-
 </body>
 </html>
